@@ -7,7 +7,6 @@ class Package(ConanFile):
 
     name = "package1"
     version = "0.0.0"
-    # package_type = "header-library"
 
     def requirements(self):
         self.requires("magic_enum/0.9.7", transitive_headers=True)
@@ -31,7 +30,8 @@ class Package(ConanFile):
 
     def export_sources(self):
         copy(self, "CMakeLists.txt", self.recipe_folder, self.export_sources_folder)
-        copy(self, "*.cmake", self.recipe_folder, self.export_sources_folder)
+        copy(self, "package1-config.cmake", self.recipe_folder, self.export_sources_folder)
+        copy(self, "include/*", self.recipe_folder, self.export_sources_folder)
 
     def package_info(self):
         self.cpp_info.set_property("cmake_find_mode", "none")

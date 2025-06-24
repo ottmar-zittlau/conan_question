@@ -1,5 +1,8 @@
 from conan import ConanFile
 from conan.tools.cmake import CMake, CMakeToolchain, CMakeDeps, cmake_layout
+from conan.tools.build import can_run
+
+import os
 
 class TestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
@@ -23,4 +26,5 @@ class TestConan(ConanFile):
         deps.generate()
 
     def test(self):
-        pass        
+        if can_run(self):
+            self.run(os.path.join(self.cpp.build.bindir, "cpp_test"), env="conanrun")      

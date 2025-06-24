@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 cd package1
 conan create . --test-folder testpackage --update

@@ -26,4 +26,5 @@ class TestConan(ConanFile):
         deps.generate()
 
     def test(self):
-        pass
+        if can_run(self):
+            self.run(os.path.join(self.cpp.build.bindir, "cpp_test"), env="conanrun")     

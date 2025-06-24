@@ -6,3 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(package2)
+
+add_executable(cpp_test main.cpp)
+target_link_libraries(cpp_test PRIVATE package2::package2)
