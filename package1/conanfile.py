@@ -7,9 +7,10 @@ class Package(ConanFile):
 
     name = "package1"
     version = "0.0.0"
+    # package_type = "header-library"
 
     def requirements(self):
-        self.requires("magic_enum/0.9.7", no_skip=True)
+        self.requires("magic_enum/0.9.7", transitive_headers=True)
         # self.requires("spdlog/1.15.3")
 
     
